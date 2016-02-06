@@ -24,6 +24,7 @@
 	"author": {
 		"name": "Abdullah Dagli"
 	},
+	"license": "Apache 2.0",
 	"bugs": {
 		"url": "https://github.com/abdagli/node-red-contrib-ibmiotf-virtual-device/issues"
 	},
