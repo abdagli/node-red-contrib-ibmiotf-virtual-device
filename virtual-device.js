@@ -8,7 +8,7 @@ module.exports = function (RED) {
 		try {
 			node.on('input', function (msg) {
 				var deviceConfig = {
-					"org" : msg.device.organization,
+					"org" : msg.device.org,
 					"id" : msg.device.deviceId,
 					"type" : msg.device.deviceType,
 					"auth-method" : msg.device.token,
