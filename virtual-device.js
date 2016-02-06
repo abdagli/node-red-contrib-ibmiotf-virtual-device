@@ -8,14 +8,15 @@ module.exports = function (RED) {
 		try {
 			node.on('input', function (msg) {
 				var deviceConfig = {
-					"org" : msg.payload.device.organization,
-					"id" : msg.payload.device.deviceId,
-					"type" : msg.payload.device.deviceType,
-					"auth-method" : msg.payload.device.token,
-					"auth-token" : msg.payload.device.authToken
+					"org" : msg.device.organization,
+					"id" : msg.device.deviceId,
+					"type" : msg.device.deviceType,
+					"auth-method" : msg.device.token,
+					"auth-token" : msg.device.authToken
 				};
 
 				console.log(deviceConfig);
+				console.log(msg);
 
 				var deviceClient = new Client.IotfDevice(deviceConfig);
 				deviceClient.connect();
@@ -25,7 +26,7 @@ module.exports = function (RED) {
 				deviceClient.on('connect', function () {
 					node.status({fill: "green", shape: "dot", text: "Device connected..."});
 
-					deviceClient.publish("status","json",msg.payload.data);
+					deviceClient.publish(msg.eventType,"json",msg.payload);
 
 					node.status({});
 					client.disconnect();
