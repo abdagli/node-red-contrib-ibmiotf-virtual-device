@@ -15,6 +15,8 @@ module.exports = function (RED) {
 					"auth-token" : msg.payload.device.authToken
 				};
 
+				console.log(deviceConfig);
+
 				var deviceClient = new Client.IotfDevice(deviceConfig);
 				deviceClient.connect();
 
