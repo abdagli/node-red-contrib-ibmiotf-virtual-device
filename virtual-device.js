@@ -2,7 +2,7 @@ module.exports = function (RED) {
 	function VirtualDevice(config) {
 		var Client = require("ibmiotf");
 
-		RED.nodes.createNode(this, n);
+		RED.nodes.createNode(this, config);
 		var node = this;
 
 		try {
